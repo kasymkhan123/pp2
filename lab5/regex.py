@@ -1,95 +1,79 @@
-#Import the re module:
 import re
 
-#Search the string to see if it starts with "The" and ends with "Spain":
-import re
+# 1. 'a' followed by zero or more 'b's
 
-txt = "The rain in Spain"
-x = re.search("^The.*Spain$", txt)
+print("1. 'a' followed by zero or more 'b's")
+text1 = "a ab abb abbb ac"
+pattern1 = r"ab*"
+print(re.findall(pattern1, text1))  # ['a', 'ab', 'abb', 'abbb']
 
-#Print a list of all matches:
-import re
 
-txt = "The rain in Spain"
-x = re.findall("ai", txt)
-print(x)
+# 2. 'a' followed by 2 to 3 'b's
 
-#Return an empty list if no match was found:
-import re
+print("\n2. 'a' followed by 2 to 3 'b's")
+text2 = "ab abb abbb abbbb"
+pattern2 = r"ab{2,3}"
+print(re.findall(pattern2, text2))  # ['abb', 'abbb']
 
-txt = "The rain in Spain"
-x = re.findall("Portugal", txt)
-print(x)
 
-#Search for the first white-space character in the string:
-import re
+# 3. Lowercase letters joined with underscore
 
-txt = "The rain in Spain"
-x = re.search("\s", txt)
+print("\n3. Lowercase letters joined with underscore")
+text3 = "hello_world foo_bar abc_def GHI_JKL"
+pattern3 = r"[a-z]+_[a-z]+"
+print(re.findall(pattern3, text3))  
 
-print("The first white-space character is located in position:", x.start())
 
-#Make a search that returns no match:
-import re
+# 4. Uppercase letter followed by lowercase letters
 
-txt = "The rain in Spain"
-x = re.search("Portugal", txt)
-print(x)
+print("\n4. Uppercase letter followed by lowercase letters")
+text4 = "Hello World Python RegEx"
+pattern4 = r"[A-Z][a-z]+"
+print(re.findall(pattern4, text4))  # ['Hello', 'World', 'Python', 'Reg']
 
-#Split at each white-space character:
-import re
 
-txt = "The rain in Spain"
-x = re.split("\s", txt)
-print(x)
+# 5. 'a' followed by anything ending with 'b'
 
-#Split the string only at the first occurrence:
-import re
+print("\n5. 'a' followed by anything ending with 'b'")
+text5 = "ab acb aXYZb a123b a_b"
+pattern5 = r"a.*b"
+print(re.findall(pattern5, text5))  # ['ab acb aXYZb a123b a_b']
 
-txt = "The rain in Spain"
-x = re.split("\s", txt, 1)
-print(x)
 
-#Replace every white-space character with the number 9:
-import re
+# 6. Replace space, comma, or dot with colon
 
-txt = "The rain in Spain"
-x = re.sub("\s", "9", txt)
-print(x)
+print("\n6. Replace space, comma, or dot with colon")
+text6 = "Hello, world. This is Python"
+pattern6 = r"[ ,.]"
+print(re.sub(pattern6, ":", text6))  # "Hello::world:This:is:Python"
 
-#Replace the first 2 occurrences:
-import re
 
-txt = "The rain in Spain"
-x = re.sub("\s", "9", txt, 2)
-print(x)
+# 7. Convert snake_case to camelCase
 
-#Do a search that will return a Match Object:
-import re
+print("\n7. Convert snake_case to camelCase")
+text7 = "this_is_snake_case"
+camel_case = re.sub(r"_([a-z])", lambda m: m.group(1).upper(), text7)
+print(camel_case)  # "thisIsSnakeCase"
 
-txt = "The rain in Spain"
-x = re.search("ai", txt)
-print(x) #this will print an object
 
-#Print the position (start- and end-position) of the first match occurrence.
-#The regular expression looks for any words that starts with an upper case "S":
-import re
+# 8. Split string at uppercase letters
 
-txt = "The rain in Spain"
-x = re.search(r"\bS\w+", txt)
-print(x.span())
+print("\n8. Split string at uppercase letters")
+text8 = "HelloWorldPython"
+parts = re.split(r"(?=[A-Z])", text8)
+print(parts)  # ['', 'Hello', 'World', 'Python']
 
-#Print the string passed into the function:
-import re
 
-txt = "The rain in Spain"
-x = re.search(r"\bS\w+", txt)
-print(x.string)
+# 9. Insert spaces before capital letters
 
-#Print the part of the string where there was a match.
-#The regular expression looks for any words that starts with an upper case "S":
-import re
+print("\n9. Insert spaces before capital letters")
+spaced = re.sub(r"(?<!^)(?=[A-Z])", " ", text8)
+print(spaced)  # "Hello World Python"
 
-txt = "The rain in Spain"
-x = re.search(r"\bS\w+", txt)
-print(x.group())
+
+# 10. Convert camelCase to snake_case
+
+print("\n10. Convert camelCase to snake_case")
+text10 = "thisIsCamelCase"
+snake_case = re.sub(r"([A-Z])", r"_\1", text10).lower()
+print(snake_case)  # "this_is_camel_case"
