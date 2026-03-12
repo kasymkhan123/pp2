@@ -1,93 +1,50 @@
-# A simple generator function:
-def my_generator():
-  yield 1
-  yield 2
-  yield 3
+# Create a generator that generates the squares of numbers up to some number N.
 
-for value in my_generator():
-  print(value)
+def generator(n):
+    for i in range(1, n+1):
+        yield i**2
 
-# The yield Keyword.
-# Generator that yields numbers:
-def count_up_to(n):
-  count = 1
-  while count <= n:
-    yield count
-    count += 1
+makeSquares = generator(5)
+for i in range(5):
+    print(next(makeSquares))
 
-for num in count_up_to(5):
-  print(num)
+#Write a program using generator to print the even numbers 
+#between 0 and n in comma separated form where n is input from console.
+def evens(n):
+    for i in range(0, n+1):
+        if i%2==0:
+            yield i
 
-# Generator for large sequences:
-def large_sequence(n):
-  for i in range(n):
-    yield i
+n=int(input())
+my_nums=evens(n)
+print(list(my_nums))
 
-# This doesn't create a million numbers in memory
-gen = large_sequence(1000000)
-print(next(gen))
-print(next(gen))
-print(next(gen))
+# Define a function with a generator which can iterate the numbers, 
+# which are divisible by 3 and 4, between a given range 0 and n.
+def num(n):
+    for i in range(0, n+1):
+        if i%3==0 and i%4==0:
+            yield i
+        
+divisible = num(100)
+for i in range(9):
+    print(next(divisible))
 
-# Using next() with Generators
-def simple_gen():
-  yield "Emil"
-  yield "Tobias"
-  yield "Linus"
+# Implement a generator called squares to yield the square of all numbers from (a) to (b). 
+# Test it with a "for" loop and print each of the yielded values.
+def squares_inrange(a, b):
+    for i in range(a, b+1):
+        yield (i*i)
 
-gen = simple_gen()
-print(next(gen))
-print(next(gen))
-print(next(gen))
+squares = squares_inrange(2, 10)
+for i in range(2, 11):
+    print(next(squares))
 
-# List comprehension vs generator expression:
-# List comprehension - creates a list
-list_comp = [x * x for x in range(5)]
-print(list_comp)
+# Implement a generator that returns all numbers from (n) down to 0.
+def returning(n):
+    for i in range(n+1, -1, -1):
+        yield i
 
-# Generator expression - creates a generator
-gen_exp = (x * x for x in range(5))
-print(gen_exp)
-print(list(gen_exp))
-
-# Using a generator expression with sum:
-# Calculate sum of squares without creating a list
-total = sum(x * x for x in range(10))
-print(total)
- 
-# Generate 100 Fibonacci numbers:
-def fibonacci():
-  a, b = 0, 1
-  while True:
-    yield a
-    a, b = b, a + b
-
-# Get first 100 Fibonacci numbers
-gen = fibonacci()
-for _ in range(100):
-  print(next(gen))
-
-# send() Method
-def echo_generator():
-  while True:
-    received = yield
-    print("Received:", received)
-
-gen = echo_generator()
-next(gen) # Prime the generator
-gen.send("Hello")
-gen.send("World")
-
-# close() Method
-def my_gen():
-  try:
-    yield 1
-    yield 2
-    yield 3
-  finally:
-    print("Generator closed")
-
-gen = my_gen()
-print(next(gen))
-gen.close()
-
+ret = returning(9)
+for i in range(11):
+    print(next(ret))

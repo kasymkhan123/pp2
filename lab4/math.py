@@ -1,33 +1,51 @@
-# Built-in Math Functions
-x = min(5, 10, 25)
-y = max(5, 10, 25)
+# Write a Python program to convert degree to radian.
+"""
+Input degree: 15
+Output radian: 0.261904
+"""
+from math import *
+n = int(input())
+print("Input degree:", n)
+print("Output radian:", radians(n))
 
-print(x)
-print(y)
+# Write a Python program to calculate the area of a trapezoid.
+"""
+Height: 5
+Base, first value: 5
+Base, second value: 6
+Expected Output: 27.5
+"""
+h = int(input())
+b1 = int(input())
+b2 = int(input())
 
-# The abs() function returns the absolute (positive) value of the specified number:
-x = abs(-7.25)
-print(x)
+print("Height:", h)
+print("Base, first value:", b1)
+print("Base, second value:", b2)
+A = ((b1+b2)/2)*h
+print("Expected Output:", A)
 
-# Return the value of 4 to the power of 3 (same as 4 * 4 * 4):
-x = pow(4, 3)
-print(x)
-
-# The math.sqrt() method for example, returns the square root of a number
+# Write a Python program to calculate the area of regular polygon.
+"""
+Input number of sides: 4
+Input the length of a side: 25
+The area of the polygon is: 625
+"""
 import math
-x = math.sqrt(64)
-print(x)
+n = int(input("number of sides:"))
+a = int(input("length of a side:"))
+s = a*a*n*(1/4)*(math.tan((math.pi)*(n-2)/(2*n)))
+print(round(s))
 
-# floor - ceil 
-import math
-
-x = math.ceil(1.4)
-y = math.floor(1.4)
-
-print(x) # returns 2
-print(y) # returns 1
-
-# pi
-import math
-x = math.pi
-print(x)
+# Write a Python program to calculate the area of a parallelogram.
+"""
+Length of base: 5
+Height of parallelogram: 6
+Expected Output: 30.0
+"""
+b = int(input())
+h = int(input())
+A = b * h
+print("Length of base:", b)
+print("Height of parallelogram:", h)
+print("Expected Output:", A)
