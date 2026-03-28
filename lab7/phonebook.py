@@ -6,7 +6,7 @@ conn = psycopg2.connect(
     database="phonebook",
     user="postgres",
     port="5432",
-    password="abilkosha"
+    password="kasym147208a11.."
 )
 
 cur = conn.cursor()
