@@ -3,8 +3,8 @@ import os
 
 
 class MusicPlayer:
-    def __init__(self, music_folder):
-        self.music_folder = music_folder
+    def __init__(self, music):
+        self.music = music
         self.playlist = []
         self.current = 0
         self.playing = False
@@ -12,9 +12,9 @@ class MusicPlayer:
         self.load_music()
 
     def load_music(self):
-        for file in os.listdir(self.music_folder):
+        for file in os.listdir(self.music):
             if file.endswith(".wav") or file.endswith(".mp3"):
-                self.playlist.append(os.path.join(self.music_folder, file))
+                self.playlist.append(os.path.join(self.music, file))
 
     def play(self):
         if not self.playlist:

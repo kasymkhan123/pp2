@@ -11,7 +11,7 @@ pygame.display.set_caption("Music Player")
 clock = pygame.time.Clock()
 font = pygame.font.SysFont("Arial", 28)
 
-music_path = os.path.join("music")
+music_path = os.path.join(r'C:\Users\HUAWEI\OneDrive\Desktop\pp2_reposotory\lab9\music_player\music')
 player = MusicPlayer(music_path)
 
 running = True
