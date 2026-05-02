@@ -1,0 +1,6 @@
+name,email,birthday,group,phone,phone_type
+John Doe,john.doe@gmail.com,1990-05-15,Friend,+1234567890,mobile
+Jane Smith,jane.work@company.com,1985-10-22,Work,+0987654321,work
+Alice Johnson,alice.j@home.org,2000-01-01,Family,+1122334455,home
+Bob Brown,bob.b@email.com,1992-12-12,Other,+1555666777,mobile
+John Doe,john.doe@gmail.com,1990-05-15,Friend,+1999888777,home

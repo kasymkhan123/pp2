@@ -1,0 +1,44 @@
+{
+    "kasym": {
+        "email": "test@gmail.com",
+        "birthday": "2005-01-01",
+        "group": null,
+        "phones": []
+    },
+    "bibigul": {
+        "email": "",
+        "birthday": "1972-03-18",
+        "group": "family",
+        "phones": []
+    },
+    "darkhan": {
+        "email": "kairov@gmail.com",
+        "birthday": "1972-11-14",
+        "group": "family",
+        "phones": []
+    },
+    "ali": {
+        "email": "boranbay@gmail.com",
+        "birthday": "2008-09-17",
+        "group": "friends",
+        "phones": []
+    },
+    "dias": {
+        "email": "akbulatov@gmail.com",
+        "birthday": "2007-10-23",
+        "group": "friends",
+        "phones": []
+    },
+    "mashtuk": {
+        "email": "mashtuk77@gmail.com",
+        "birthday": "2008-08-21",
+        "group": "friends",
+        "phones": []
+    },
+    "dima": {
+        "email": "kiselev@gmail.com",
+        "birthday": "2007-12-21",
+        "group": "friends",
+        "phones": []
+    }
+}
